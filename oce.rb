@@ -15,6 +15,11 @@ class Oce < Formula
   depends_on "tbb" => :recommended
   depends_on :macos => :snow_leopard
 
+  patch do
+    url "https://bitbucket.org/fathomteam/cgm/raw/ec38fcfe1800802331eb5c6540ce0c4817daf5ba/geom/OCC/occ_patches_6.6.0"
+    sha1 "acc6a0b38b3acf7796db13d8ad0ec8fa072878a1"
+  end
+
   def install
     cmake_args = std_cmake_args
     cmake_args << "-DOCE_INSTALL_PREFIX:STRING=#{prefix}"
